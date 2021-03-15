@@ -17,7 +17,7 @@ export default {
     headTitle,
     container,
     firstContainer,
-  }
+  },
 }
 </script>
 
@@ -33,6 +33,7 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'IRANSansWeb';
 }
 body{
   font-family: IRANSansWeb;
