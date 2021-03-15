@@ -22,13 +22,20 @@ export default {
 </script>
 
 <style>
+@font-face {
+    font-family: 'IRANSansWeb';
+    src: url('./IRANSans 5 WebFonts/fonts/eot/IRANSansWeb.eot') format('eot');
+    src: url('./IRANSans 5 WebFonts/fonts/ttf/IRANSansWeb.ttf') format('ttf');
+    src: url('./IRANSans 5 WebFonts/fonts/woff/IRANSansWeb.woff') format('woff');
+    src: url('./IRANSans 5 WebFonts/fonts/woff2/IRANSansWeb.woff2') format('woff2');
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-  font-family: 'IRANSansWeb';
+  font-family: IRANSansWeb;
     display: flex;
     justify-content: center;
     background: #eeeeee;
