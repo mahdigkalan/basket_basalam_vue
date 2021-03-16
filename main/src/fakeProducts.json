@@ -1,0 +1,24 @@
+[
+    {
+        "id": "pr1",
+        "stock": 15,
+        "name": "name1",
+        "price": 750000,
+        "primaryPrice": 850000,
+        "image": {
+            "url": "@/pho.../image.png",
+            "size": "SMALL"
+        }
+    },
+    {
+        "id": "pr2",
+        "stock": 10,
+        "name": "name2",
+        "price": 350000,
+        "primaryPrice": 550000,
+        "image": {
+            "url": "@/pho.../image2.png",
+            "size": "SMALL"
+        }
+    }
+]

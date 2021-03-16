@@ -1,12 +1,8 @@
 <template>
     <div class="main">
-        <template>
             <shopTitle/> 
-            <template>
-                <product/>
-            </template>  
+                <product/>  
             <footerShop/>
-        </template>
     </div>
 </template>
 
