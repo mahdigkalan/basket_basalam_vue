@@ -22,11 +22,11 @@
       </div>
       <div class="orderCount flex_row">
         <button class="delButton ordersButtons"></button>
-        <button class="add-button ordersButtons">
+        <button class="add-button ordersButtons" v-on:click="add">
           <img src="../image/addVector.png" />
         </button>
-        <input type="text" value="3" readonly class="inp" />
-        <button class="less-button ordersButtons">
+        <input type="text" v-bind:value="counter" readonly class="inp" />
+        <button class="less-button ordersButtons" v-on:click="less">
           <img src="../image/lowVector.png" />
         </button>
       </div>
@@ -37,6 +37,21 @@
 <script>
 export default {
   name: "product",
+  data() {
+    return {
+      counter : 3 ,
+    }
+  },
+  methods: {
+    add : function () {
+      this.counter++ ;
+    },
+    less : function () {
+      if(this.counter > 1){
+        this.counter-- ;
+      }
+    }
+  },
 };
 </script>
 
