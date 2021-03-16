@@ -8,7 +8,7 @@
     <div class="secondProductFooter flex_row">
       <div class="saleCode flex_row">
         <p>ثبت کد تخفیف غرفه</p>
-        <img src="image/codeVector.png" alt="" />
+        <img src="../image/codeVector.png" alt="" />
       </div>
     </div>
     <div class="thirdProductFooter flex_row">

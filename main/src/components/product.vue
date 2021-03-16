@@ -21,7 +21,7 @@
         <div>ذخیره در لیست بعدی</div>
       </div>
       <div class="orderCount flex_row">
-        <button class="delButton ordersButtons"></button>
+        <button class="delButton ordersButtons" v-on:click="del"></button>
         <button class="add-button ordersButtons" v-on:click="add">
           <img src="../image/addVector.png" />
         </button>
@@ -50,6 +50,9 @@ export default {
       if(this.counter > 1){
         this.counter-- ;
       }
+    },
+    del : function () {
+      console.log("Deleted !");
     }
   },
 };
