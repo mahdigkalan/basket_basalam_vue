@@ -26,6 +26,11 @@
 <script>
 export default {
   name: "footerShop",
+  data() {
+    return {
+      mahdi : "Hello World !",
+    }
+  },
 };
 </script>
 
