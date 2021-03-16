@@ -36,7 +36,6 @@ export default {
     font-family: 'IRANSansWeb';
 }
 body{
-  font-family: IRANSansWeb;
     display: flex;
     justify-content: center;
     background: #eeeeee;
