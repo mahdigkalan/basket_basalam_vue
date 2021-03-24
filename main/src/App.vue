@@ -2,7 +2,7 @@
   <div id="app">
     <headTitle/>
     <container/>
-    <firstContainer v-for="x in product" :key="x"></firstContainer>
+    <firstContainer></firstContainer>
   </div>
 </template>
 
