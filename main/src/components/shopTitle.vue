@@ -1,7 +1,7 @@
 <template>
   <div class="shop-title flex_column">
     <div class="boothName">
-      <p class="whereFrom">از غرفه : <span>خوشمزه های خاتون</span></p>
+      <!-- <p class="whereFrom">از غرفه : <span>خوشمزه های خاتون</span></p> -->
     </div>
     <div class="boothFounder flex_row">
       <div class="boothPicture">

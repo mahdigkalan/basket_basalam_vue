@@ -2,7 +2,7 @@
   <div id="app">
     <headTitle/>
     <container/>
-    <firstContainer/>
+    <firstContainer v-for="x in product" :key="x"></firstContainer>
   </div>
 </template>
 
@@ -10,9 +10,16 @@
 import headTitle from './components/headTitle.vue'
 import container from './components/containerHeader.vue'
 import firstContainer from './components/firstContainer.vue'
+import fakeProducts from "@/fakeProducts.json";
+
 
 export default {
   name: 'App',
+  data() {
+    return {
+      product : fakeProducts,
+    }
+  },
   components: {
     headTitle,
     container,

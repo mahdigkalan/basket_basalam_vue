@@ -1,23 +1,23 @@
 [
     {
         "id": "pr1",
-        "stock": 15,
-        "name": "name1",
+        "stock": 100,
+        "name": "سوسیس آلمانی پنیری",
         "price": 750000,
         "primaryPrice": 850000,
         "image": {
-            "url": "@/pho.../image.png",
+            "url": "@/image/image 1.png",
             "size": "SMALL"
         }
     },
     {
         "id": "pr2",
-        "stock": 10,
-        "name": "name2",
-        "price": 350000,
-        "primaryPrice": 550000,
+        "stock": 200,
+        "name": "کالباس پسته",
+        "price": 150000,
+        "primaryPrice": 350000,
         "image": {
-            "url": "@/pho.../image2.png",
+            "url": "@/image/image 2.png",
             "size": "SMALL"
         }
     }

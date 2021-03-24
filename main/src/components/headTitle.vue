@@ -4,15 +4,15 @@
       <div class="basketItem flex_row">
         <!-- <img src="image/Small.png" alt="NumText" id="basketItemImg1"> -->
         <div class="small-badge">3</div>
-        <img src="../image/Vector.png" alt="basketLogo" id="basketItemImg2" />
+        <img src="@/image/Vector.png" alt="basketLogo" id="basketItemImg2" />
         <div class="sellingButton">
           <button>فروش در باسلام</button>
         </div>
       </div>
       <div class="logoItem">
-        <img src="../image/Logo.png" alt="Logo" id="image1" />
-        <img src="../image/Type.png" alt="NameLogo" id="image2" />
-        <img src="../image/downVector.png" id="image3" />
+        <img src="@/image/Logo.png" alt="Logo" id="image1" />
+        <img src="@/image/Type.png" alt="NameLogo" id="image2" />
+        <img src="@/image/downVector.png" id="image3" />
       </div>
       <div class="searchbox">
         <input
