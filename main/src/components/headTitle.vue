@@ -30,26 +30,7 @@ export default {
 };
 </script>
 
-<style>
-@font-face {
-    font-family: 'IRANSansWeb';
-    src: url('../IRANSans 5 WebFonts/fonts/eot/IRANSansWeb.eot') format('eot');
-    src: url('../IRANSans 5 WebFonts/fonts/ttf/IRANSansWeb.ttf') format('ttf');
-    src: url('../IRANSans 5 WebFonts/fonts/woff/IRANSansWeb.woff') format('woff');
-    src: url('../IRANSans 5 WebFonts/fonts/woff2/IRANSansWeb.woff2') format('woff2');
-}
-.flex_row{
-    display: flex;
-    flex-direction: row;
-}
-.flex_row_reverse{
-    display: flex;
-    flex-direction: row-reverse;
-}
-.flex_column{
-    display: flex;
-    flex-direction: column;
-}
+<style scoped>
 .main-container{
     width: 360px;
     height: 101px;

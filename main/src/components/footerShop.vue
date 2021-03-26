@@ -34,19 +34,7 @@ export default {
 };
 </script>
 
-<style>
-.flex_row{
-    display: flex;
-    flex-direction: row;
-}
-.flex_row_reverse{
-    display: flex;
-    flex-direction: row-reverse;
-}
-.flex_column{
-    display: flex;
-    flex-direction: column;
-}
+<style scoped>
 .product-footer{
     width: 100%;
     height: 120px;
