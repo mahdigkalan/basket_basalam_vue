@@ -27,12 +27,8 @@ export default {
     footerShop,
   },
 
-  methods: {
-    show: function () {
-      console.log(this.product);
-    },
-  },
 };
+
 </script>
 
 <style>

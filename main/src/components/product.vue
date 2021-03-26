@@ -1,8 +1,8 @@
 <template>
-  <div class="product flex_column">
+  <div class="product flex_column" v-if="delProduct">
     <div class="main-product flex_row_reverse">
       <div class="product-picture">
-        <img :src="jsonPr[keyIndex].image.url" />
+        <img :src="jsonPr[keyIndex].image.url"/>
       </div>
       <div class="product-cost flex_column">
         <div class="product-name">
@@ -21,12 +21,12 @@
         <div>ذخیره در لیست بعدی</div>
       </div>
       <div class="orderCount flex_row">
-        <button class="delButton ordersButtons"></button>
-        <button class="add-button ordersButtons">
+        <button class="delButton ordersButtons" @click="delProduct = !delProduct"></button>
+        <button class="add-button ordersButtons" @click="jsonPr[keyIndex].count++">
           <img src="../image/addVector.png" />
         </button>
         <input type="text" readonly class="inp" :value="jsonPr[keyIndex].count"/>
-        <button class="less-button ordersButtons">
+        <button class="less-button ordersButtons" @click="jsonPr[keyIndex].count--">
           <img src="../image/lowVector.png" />
         </button>
       </div>
@@ -36,6 +36,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      delProduct : true ,
+    }
+  },
   name: "product",
   props : ["keyIndex","jsonPr"] ,
 };

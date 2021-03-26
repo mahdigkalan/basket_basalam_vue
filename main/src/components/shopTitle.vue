@@ -1,5 +1,5 @@
 <template>
-  <div class="shop-title flex_column">
+  <div class="shop-title flex_column" >
     <div class="boothName">
       <p class="whereFrom">از غرفه : <span>{{jsonPr.shopName}}</span></p>
     </div>
