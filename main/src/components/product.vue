@@ -2,16 +2,16 @@
   <div class="product flex_column">
     <div class="main-product flex_row_reverse">
       <div class="product-picture">
-        <img src="../image/image 1.png" />
+        <img :src="jsonPr[keyIndex].image.url" />
       </div>
       <div class="product-cost flex_column">
         <div class="product-name">
-          <p>سوسیس آلمانی پنیری</p>
+          <p>{{jsonPr[keyIndex].name}}</p>
         </div>
         <div class="productFinal-cost flex_row_reverse">
-          <div class="line-cost"><del>85000</del></div>
+          <div class="line-cost"><del>{{jsonPr[keyIndex].primaryPrice}}</del></div>
           <div class="final-cost">
-            <p class="pCost">75000</p>
+            <p class="pCost">{{jsonPr[keyIndex].price}}</p>
           </div>
         </div>
       </div>
@@ -21,12 +21,12 @@
         <div>ذخیره در لیست بعدی</div>
       </div>
       <div class="orderCount flex_row">
-        <button class="delButton ordersButtons" v-on:click="del"></button>
-        <button class="add-button ordersButtons" v-on:click="add">
+        <button class="delButton ordersButtons"></button>
+        <button class="add-button ordersButtons">
           <img src="../image/addVector.png" />
         </button>
-        <input type="text" v-bind:value="counter" readonly class="inp" />
-        <button class="less-button ordersButtons" v-on:click="less">
+        <input type="text" readonly class="inp" :value="jsonPr[keyIndex].count"/>
+        <button class="less-button ordersButtons">
           <img src="../image/lowVector.png" />
         </button>
       </div>
@@ -37,24 +37,7 @@
 <script>
 export default {
   name: "product",
-  data() {
-    return {
-      counter : 3 ,
-    }
-  },
-  methods: {
-    add : function () {
-      this.counter++ ;
-    },
-    less : function () {
-      if(this.counter > 1){
-        this.counter-- ;
-      }
-    },
-    del : function () {
-      console.log("Deleted !");
-    }
-  },
+  props : ["keyIndex","jsonPr"] ,
 };
 </script>
 

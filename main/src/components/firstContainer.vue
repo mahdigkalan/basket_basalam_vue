@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-      <shopTitle />
-      <product></product>
+      <shopTitle :jsonPr="product[shopIndex]" />
+      <product  v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray"></product>
       <footerShop />
   </div>
 </template>
@@ -14,7 +14,7 @@ import fakeProducts from "@/fakeProducts.json";
 
 export default {
   name: "firstContainer",
-
+  props : ["indexTurn","shopIndex"] ,
   data() {
     return {
       product: fakeProducts,

@@ -2,7 +2,7 @@
   <div id="app">
     <headTitle/>
     <container/>
-    <firstContainer v-for="shop in product.length" :key="shop"></firstContainer>
+    <firstContainer v-for="(shop, index) in product" :key="shop" :shopIndex="index"></firstContainer>
   </div>
 </template>
 

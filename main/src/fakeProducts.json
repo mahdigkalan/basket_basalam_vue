@@ -1,24 +1,53 @@
 [
     {
-        "id": "pr1",
-        "stock": 100,
-        "name": "سوسیس آلمانی پنیری",
-        "price": 750000,
-        "primaryPrice": 850000,
-        "image": {
-            "url": "@/image/image 1.png",
-            "size": "SMALL"
-        }
+        "shopName" : "خوشمزه های خاتون",
+        "shopFounder" : "مینو همگام",
+        "city" : "سعادت شهر" ,
+        "productsArray" : [
+            {
+                "id": "pr1",
+                "stock": 100,
+                "count" : 3 ,
+                "name": "سوسیس آلمانی پنیری",
+                "price": 750000,
+                "primaryPrice": 850000,
+                "image": {
+                    "url": "@/image/image 1.png",
+                    "size": "SMALL"
+                }
+            },
+            {
+                "id": "pr2",
+                "stock": 200,
+                "count" : 1 ,
+                "name": "کالباس پسته",
+                "price": 150000,
+                "primaryPrice": 350000,
+                "image": {
+                    "url": "@/image/image 2.png",
+                    "size": "SMALL"
+                }
+            }
+        ]
     },
     {
-        "id": "pr2",
-        "stock": 200,
-        "name": "کالباس پسته",
-        "price": 150000,
-        "primaryPrice": 350000,
-        "image": {
-            "url": "@/image/image 2.png",
-            "size": "SMALL"
-        }
+        "shopName" : "محصولات غذایی ولیک",
+        "shopFounder" : "سارا خوش دل",
+        "city" : "بوشهر" ,
+        "productsArray" : [
+            {
+                "id": "pr1",
+                "stock": 100,
+                "count" : 3 ,
+                "name": "سوسیس آلمانی پنیری",
+                "price": 615000,
+                "primaryPrice": 850000,
+                "image": {
+                    "url": "@/image/image 1.png",
+                    "size": "SMALL"
+                }
+            }
+        ]
+
     }
 ]

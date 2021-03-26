@@ -1,7 +1,7 @@
 <template>
   <div class="shop-title flex_column">
     <div class="boothName">
-      <!-- <p class="whereFrom">از غرفه : <span>خوشمزه های خاتون</span></p> -->
+      <p class="whereFrom">از غرفه : <span>{{jsonPr.shopName}}</span></p>
     </div>
     <div class="boothFounder flex_row">
       <div class="boothPicture">
@@ -9,12 +9,11 @@
       </div>
       <div class="boothLocation flex_column">
         <div class="boothLocationFirstDiv">
-          <p>مینو همگام</p>
+          <p>{{jsonPr.shopFounder}}</p>
         </div>
         <div class="boothLocationSecondDiv">
           <p>
-            <img src="../image/VectorThree.png" alt="LocationVector" />از سعادت
-            شهر
+            <img src="../image/VectorThree.png" alt="LocationVector" />{{jsonPr.city}}
           </p>
         </div>
       </div>
@@ -24,6 +23,7 @@
 
 <script>
 export default {
+  props : ["keyIndex","jsonPr"] ,
   name: "shopTitle",
 };
 </script>
