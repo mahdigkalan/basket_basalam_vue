@@ -1,8 +1,10 @@
 <template>
   <div class="main">
+    <div class="main-content">
       <shopTitle :jsonPr="product[shopIndex]" />
       <product  v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray"></product>
       <footerShop />
+    </div>
   </div>
 </template>
 

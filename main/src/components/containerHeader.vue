@@ -18,7 +18,6 @@ export default {
       selected.classList.add("nextList");
       next.classList.add("selectedList");
       next.classList.remove("nextList");
-      
     },
   },
 };
@@ -49,5 +48,6 @@ export default {
   height: 100%;
   text-align: center;
   padding: 10px;
+  border-bottom: solid 2px rgba(223, 223, 223, 1);
 }
 </style>

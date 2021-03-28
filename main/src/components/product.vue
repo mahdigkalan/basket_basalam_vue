@@ -2,16 +2,18 @@
   <div class="product flex_column" v-if="delProduct">
     <div class="main-product flex_row_reverse">
       <div class="product-picture">
-        <img :src="jsonPr[keyIndex].image.url"/>
+        <img :src="jsonFile.image.url"/>
       </div>
       <div class="product-cost flex_column">
         <div class="product-name">
-          <p>{{jsonPr[keyIndex].name}}</p>
+          <p>{{ jsonFile.name }}</p>
         </div>
         <div class="productFinal-cost flex_row_reverse">
-          <div class="line-cost"><del>{{jsonPr[keyIndex].primaryPrice}}</del></div>
+          <div class="line-cost">
+            <del>{{ jsonFile.primaryPrice }}</del>
+          </div>
           <div class="final-cost">
-            <p class="pCost">{{jsonPr[keyIndex].price}}</p>
+            <p class="pCost">{{ jsonFile.price }}</p>
           </div>
         </div>
       </div>
@@ -21,12 +23,23 @@
         <div>ذخیره در لیست بعدی</div>
       </div>
       <div class="orderCount flex_row">
-        <button class="delButton ordersButtons" @click="delProduct = !delProduct"></button>
-        <button class="add-button ordersButtons" @click="jsonPr[keyIndex].count++">
+        <button
+          class="delButton ordersButtons"
+          @click="delProduct = !delProduct"
+        ></button>
+        <button class="add-button ordersButtons" @mousedown="add(200)" @mouseup="stop" @click="addSlow">
           <img src="../image/addVector.png" />
         </button>
-        <input type="text" readonly class="inp" :value="jsonPr[keyIndex].count"/>
-        <button class="less-button ordersButtons" @click="jsonPr[keyIndex].count--">
+        <input
+          type="text"
+          readonly
+          class="inp"
+          :value="jsonPr[keyIndex].count"
+        />
+        <button
+          class="less-button ordersButtons"
+          @mousedown="less(200)" @mouseup="stop" @click="lessSlow"
+        >
           <img src="../image/lowVector.png" />
         </button>
       </div>
@@ -38,11 +51,47 @@
 export default {
   data() {
     return {
-      delProduct : true ,
-    }
+      delProduct: true,
+      jsonFile : this.jsonPr[this.keyIndex] ,
+    };
   },
   name: "product",
-  props : ["keyIndex","jsonPr"] ,
+  props: ["keyIndex", "jsonPr"],
+  methods: {
+    addSlow(){
+      if(this.jsonFile.count < this.jsonFile.stock){
+        this.jsonFile.count++;
+      }
+    },
+
+    lessSlow(){
+      if(this.jsonFile.count > 1 ){
+        this.jsonFile.count--;
+      }
+    },
+    add(duration) {
+      if(this.jsonFile.count < this.jsonFile.stock){
+          this.setting = setTimeout(() => {
+          this.jsonFile.count++;
+          this.add(duration - 15);
+        }, duration);
+      }
+    },
+
+    stop(){
+      clearInterval(this.setting)
+    },
+
+    less(duration){
+      if(this.jsonFile.count > 1 ){
+          this.setting = setTimeout(() => {
+          this.jsonFile.count--;
+          this.less(duration - 15);
+        }, duration);
+      }
+    },
+
+  },
 };
 </script>
 
