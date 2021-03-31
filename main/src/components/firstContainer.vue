@@ -1,9 +1,10 @@
 <template>
   <div class="main">
     <div class="main-content">
-      <shopTitle :jsonPr="product[shopIndex]" />
-      <product  v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray"></product>
-      <footerShop />
+      <!-- {{finalShop}} -->
+      <shopTitle :jsonPr="product[shopIndex]"/>
+      <product class="product" v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray" @loadCost=" finalShop = $event "></product>
+      <footerShop :finalFooter="finalShop"/>
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       product: fakeProducts,
+      // finalShop : 0 ,
     };
   },
 
@@ -28,7 +30,7 @@ export default {
     product,
     footerShop,
   },
-
+  
 };
 
 </script>

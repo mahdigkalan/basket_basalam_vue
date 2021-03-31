@@ -1,8 +1,18 @@
 <template>
   <div class="container-header">
     <div class="selectList flex_row_reverse">
-      <div class="selectedList" @click="change">سبد خرید</div>
-      <div class="nextList" @click="change">لیست خرید بعدی</div>
+      <div
+        :class="{ selectedList: isOn, nextList: !isOn }"
+        @click="check(true)"
+      >
+        سبد خرید
+      </div>
+      <div
+        :class="{ nextList: isOn, selectedList: !isOn }"
+        @click="check(false)"
+      >
+        لیست خرید بعدی
+      </div>
     </div>
   </div>
 </template>
@@ -10,16 +20,32 @@
 <script>
 export default {
   name: "container",
-  methods: {
-    change() {
-      let selected = document.querySelector(".selectedList");
-      let next = document.querySelector(".nextList");
-      selected.classList.remove("selectedList");
-      selected.classList.add("nextList");
-      next.classList.add("selectedList");
-      next.classList.remove("nextList");
-    },
+  data() {
+    return {
+      content: "changeComponent",
+      isOn: true,
+    };
   },
+
+  created() {
+    this.$emit("changeContent", this.content);
+  },
+
+  methods: {
+    check(status) {
+      this.isOn = status;
+
+      if (this.isOn) {
+        this.content = "changeComponent";
+      } else {
+        this.content = "newBasket";
+      }
+
+      this.$emit("changeContent", this.content);
+    },
+    
+  },
+
 };
 </script>
 

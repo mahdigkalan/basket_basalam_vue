@@ -53,22 +53,22 @@ export default {
     return {
       delProduct: true,
       jsonFile : this.jsonPr[this.keyIndex] ,
+      // final : 0 ,
     };
   },
   name: "product",
   props: ["keyIndex", "jsonPr"],
   methods: {
-    addSlow(){
-      if(this.jsonFile.count < this.jsonFile.stock){
-        this.jsonFile.count++;
-      }
-    },
 
-    lessSlow(){
-      if(this.jsonFile.count > 1 ){
-        this.jsonFile.count--;
-      }
-    },
+    // finalCost(){
+    //   let num = this.jsonFile.count ;
+    //   let val = this.jsonFile.price ;
+    //   this.final = num * val ;
+    //   console.log(this.final);
+    //   this.$emit("loadCost",this.final) ;
+    //   return this.final ;
+    // },
+
     add(duration) {
       if(this.jsonFile.count < this.jsonFile.stock){
           this.setting = setTimeout(() => {
@@ -76,10 +76,6 @@ export default {
           this.add(duration - 15);
         }, duration);
       }
-    },
-
-    stop(){
-      clearInterval(this.setting)
     },
 
     less(duration){
@@ -91,8 +87,25 @@ export default {
       }
     },
 
+    addSlow(){
+      if(this.jsonFile.count < this.jsonFile.stock){
+        this.jsonFile.count++;
+      }
+    },
+
+    lessSlow(){
+      if(this.jsonFile.count > 1 ){
+        this.jsonFile.count--;
+      }
+    },
+    
+     stop(){
+      clearInterval(this.setting)
+    },
+
   },
 };
+
 </script>
 
 <style scoped>

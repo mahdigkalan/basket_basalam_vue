@@ -14,7 +14,7 @@
     <div class="thirdProductFooter flex_row">
       <div class="finalCost flex_column">
         <div class="constSen">جمع مبلغ برای این 2 کالا</div>
-        <div class="factor"></div>
+        <div class="factor">{{finalFooter}}</div>
       </div>
       <div class="conShop">
         <button class="mainButton">ادامه خرید فقط از این غرفه</button>
@@ -26,6 +26,7 @@
 <script>
 export default {
   name: "footerShop",
+  props : ["finalFooter"],
   data() {
     return {
       mahdi : "Hello World !",
