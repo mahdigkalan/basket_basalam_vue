@@ -1,7 +1,7 @@
 import home from "@/components/mainpage.vue"
-import second from "@/components/second.vue"
+import address from "@/components/adressPage.vue"
 
 export const routes = [
     {path : "" , component : home },
-    {path : "/user" , component : second},
+    {path : "/adress" , component : address},
 ] ;

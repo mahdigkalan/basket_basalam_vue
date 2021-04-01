@@ -20,6 +20,7 @@
         <button class="mainButton">ادامه خرید فقط از این غرفه</button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -38,7 +39,6 @@ export default {
 <style scoped>
 .product-footer{
     width: 100%;
-    height: 120px;
 }
 .firstProductFooter{
     height: 30%;

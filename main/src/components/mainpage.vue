@@ -5,6 +5,8 @@
     <keep-alive>
       <component :is="basket"></component>    
     </keep-alive>
+    <space />
+    <Footer />
   </div>
 </template>
 
@@ -13,6 +15,8 @@ import headTitle from './headTitle.vue'
 import container from './containerHeader.vue'
 import newBasket from './newBasket.vue'
 import changeComponent from './changeComponent.vue'
+import Footer from './footerMain.vue'
+import space from './space.vue'
 
 export default {
   name: 'App',
@@ -26,6 +30,8 @@ export default {
     container,
     newBasket,
     changeComponent,
+    Footer,
+    space,
   },
 }
 </script>
@@ -49,6 +55,12 @@ export default {
 .flex_column{
     display: flex;
     flex-direction: column;
+}
+.full_width{
+    width: 100%;
+}
+.full-height{
+    height: 100%;
 }
 *{
     margin: 0;
