@@ -53,8 +53,16 @@ export default {
     return {
       delProduct: true,
       jsonFile : this.jsonPr[this.keyIndex] ,
-      // final : 0 ,
+      final : 0 ,
     };
+  },
+  beforeMount() {
+    let num = this.jsonFile.count ;
+    let val = this.jsonFile.price ;
+    this.final = num * val ;
+    console.log(this.final);
+    this.$emit("loadCost",this.final) ;
+    return this.final ;
   },
   name: "product",
   props: ["keyIndex", "jsonPr"],

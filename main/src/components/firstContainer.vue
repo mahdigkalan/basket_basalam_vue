@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="main-content">
-      <!-- {{finalShop}} -->
+      {{finalShop}}
       <shopTitle :jsonPr="product[shopIndex]"/>
       <product class="product" v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray" @loadCost=" finalShop = $event "></product>
       <footerShop :finalFooter="finalShop"/>
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       product: fakeProducts,
-      // finalShop : 0 ,
+      finalShop : 0 ,
     };
   },
 

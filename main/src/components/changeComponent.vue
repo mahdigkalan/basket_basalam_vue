@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{fianl}}
     <firstContainer
       v-for="(shop, index) in product"
       :key="shop"

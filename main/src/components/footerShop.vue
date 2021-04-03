@@ -39,6 +39,7 @@ export default {
 <style scoped>
 .product-footer{
     width: 100%;
+    height: 150px;
 }
 .firstProductFooter{
     height: 30%;

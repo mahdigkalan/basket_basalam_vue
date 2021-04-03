@@ -6,7 +6,7 @@
       </button>
     </div>
     <div class="rightside-div full-height flex_row_reverse">
-      <a href="#"><button></button></a>
+      <router-link to="/"><button></button></router-link>
       <p>آدرس ارسال</p>
     </div>
   </div>

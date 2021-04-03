@@ -6,8 +6,7 @@
         <div class="factor">465000</div>
       </div>
       <div class="buyBtn">
-        <a><button>ادامه خرید از 2 غرفه</button></a
-        >
+        <router-link to="/adress"><button>ادامه خرید از 2 غرفه</button></router-link>
       </div>
     </div>
   </div>
