@@ -6,7 +6,7 @@
       <component :is="basket"></component>    
     </keep-alive>
     <space />
-    <Footer />
+    <footerMain />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import headTitle from './headTitle.vue'
 import container from './containerHeader.vue'
 import newBasket from './newBasket.vue'
 import changeComponent from './changeComponent.vue'
-import Footer from './footerMain.vue'
+import footerMain from './footerMain.vue'
 import space from './space.vue'
 
 export default {
@@ -30,7 +30,7 @@ export default {
     container,
     newBasket,
     changeComponent,
-    Footer,
+    footerMain,
     space,
   },
 }

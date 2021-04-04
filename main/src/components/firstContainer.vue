@@ -1,9 +1,8 @@
 <template>
   <div class="main">
     <div class="main-content">
-      {{finalShop}}
       <shopTitle :jsonPr="product[shopIndex]"/>
-      <product class="product" v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray" @loadCost=" finalShop = $event "></product>
+      <product class="product" v-for="(pr, index) in product[shopIndex].productsArray.length" :key="pr"  :keyIndex="index" :jsonPr="product[shopIndex].productsArray" @loadCost=" finalShop += $event "></product>
       <footerShop :finalFooter="finalShop"/>
     </div>
   </div>
@@ -18,6 +17,7 @@ import fakeProducts from "@/fakeProducts.json";
 export default {
   name: "firstContainer",
   props : ["indexTurn","shopIndex"] ,
+  
   data() {
     return {
       product: fakeProducts,
@@ -30,7 +30,7 @@ export default {
     product,
     footerShop,
   },
-  
+    
 };
 
 </script>

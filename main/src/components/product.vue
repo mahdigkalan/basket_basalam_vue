@@ -20,7 +20,8 @@
     </div>
     <div class="else-product flex_row">
       <div class="saveInNext">
-        <div>ذخیره در لیست بعدی</div>
+        <!-- <div>ذخیره در لیست بعدی</div> -->
+        <div>{{checkCost}}</div>
       </div>
       <div class="orderCount flex_row">
         <button
@@ -48,6 +49,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -57,15 +59,26 @@ export default {
     };
   },
   beforeMount() {
-    let num = this.jsonFile.count ;
-    let val = this.jsonFile.price ;
-    this.final = num * val ;
-    console.log(this.final);
-    this.$emit("loadCost",this.final) ;
-    return this.final ;
+    let num = this.$store.state.count ;
+    let val = this.$store.state.cost ;
+    this.$store.state.final = num * val ;
   },
+  updated() {
+    let num = this.$store.state.count ;
+    let val = this.$store.state.cost ;
+    this.$store.state.final = num * val ;
+  },
+  // beforeMount() {
+  //   let num = this.jsonFile.count ;
+  //   let val = this.jsonFile.price ;
+  //   this.final = num * val ;
+  //   this.$emit("finalShop",this.final)
+  // },
   name: "product",
   props: ["keyIndex", "jsonPr"],
+  computed : mapGetters([
+    'checkCost'
+  ]),
   methods: {
 
     // finalCost(){

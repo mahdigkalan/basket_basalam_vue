@@ -5,7 +5,7 @@
       <div class="cost full-height">75000</div>
 
       <div class="confrim-button full-height">
-        <button>ادامه فرآیند خرید</button>
+        <router-link to="/third"><button>ادامه فرآیند خرید</button></router-link>
       </div>
     </div>
   </div>
