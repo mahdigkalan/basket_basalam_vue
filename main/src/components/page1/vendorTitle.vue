@@ -5,7 +5,7 @@
     </div>
     <div class="boothFounder flex_row">
       <div class="boothPicture">
-        <img src="../image/Ellipse 4.png" alt="" />
+        <img src="@/image/Ellipse 4.png" alt="" />
       </div>
       <div class="boothLocation flex_column">
         <div class="boothLocationFirstDiv">
@@ -13,7 +13,7 @@
         </div>
         <div class="boothLocationSecondDiv">
           <p>
-            <img src="../image/VectorThree.png" alt="LocationVector" />{{jsonPr.city}}
+            <img src="@/image/VectorThree.png" alt="LocationVector" /> {{jsonPr.city}}
           </p>
         </div>
       </div>
@@ -23,7 +23,13 @@
 
 <script>
 export default {
-  props : ["keyIndex","jsonPr"] ,
+  props : {
+    jsonPr : {
+      type : Array,
+      required : true ,
+    } ,
+  },
+  // props : ["keyIndex","jsonPr"] ,
   name: "shopTitle",
 };
 </script>

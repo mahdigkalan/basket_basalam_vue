@@ -1,16 +1,17 @@
 <template>
   <div>
-    <firstContainer
+    <Vendor
       v-for="(shop, index) in product"
-      :key="shop"
-      :shopIndex="index"
-    ></firstContainer>
+      :products="shop.productsArray"
+      :venderInfo="shop"
+      :key="index"
+    />
   </div>
 </template>
 
 <script>
 import fakeProducts from "@/fakeProducts.json";
-import firstContainer from './firstContainer.vue' 
+import Vendor from '@/components/page1/vendor.vue' 
 
 export default {
   data() {
@@ -19,7 +20,7 @@ export default {
     };
   },
   components: {
-    firstContainer,
+    Vendor,
   },
 };
 </script>

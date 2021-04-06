@@ -1,7 +1,7 @@
 <template>
   <div>
       <h2> . سبد خرید خالی است</h2>
-      <img src="../image/empty.png" alt="empty">
+      <img src="@/image/empty.png" alt="empty">
   </div>
 </template>
 

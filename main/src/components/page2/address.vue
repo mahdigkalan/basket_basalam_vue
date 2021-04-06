@@ -41,7 +41,7 @@ export default {
     border-radius: 100px;
     border: none;
     background: rgba(238, 238, 238, 1);
-    background-image: url('../image/editVector.png');
+    background-image: url('~@/image/editVector.png');
     background-position: 6px 4px; 
     background-repeat: no-repeat;
     position: absolute;

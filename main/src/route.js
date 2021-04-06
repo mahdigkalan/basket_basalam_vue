@@ -1,5 +1,5 @@
-import home from "@/components/mainpage.vue"
-import address from "@/components/adressPage.vue"
+import home from "@/components/page1/mainpage.vue"
+import address from "@/components/page2/adressPage.vue"
 import third from "@/components/thirdPage.vue"
 
 export const routes = [

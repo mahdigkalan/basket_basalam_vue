@@ -21,7 +21,7 @@
     <div class="else-product flex_row">
       <div class="saveInNext">
         <!-- <div>ذخیره در لیست بعدی</div> -->
-        <div>{{checkCost}}</div>
+        <div>{{final}}</div>
       </div>
       <div class="orderCount flex_row">
         <button
@@ -29,7 +29,7 @@
           @click="delProduct = !delProduct"
         ></button>
         <button class="add-button ordersButtons" @mousedown="add(200)" @mouseup="stop" @click="addSlow">
-          <img src="../image/addVector.png" />
+          <img src="@/image/addVector.png" />
         </button>
         <input
           type="text"
@@ -41,7 +41,7 @@
           class="less-button ordersButtons"
           @mousedown="less(200)" @mouseup="stop" @click="lessSlow"
         >
-          <img src="../image/lowVector.png" />
+          <img src="@/image/lowVector.png" />
         </button>
       </div>
     </div>
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -58,37 +57,34 @@ export default {
       final : 0 ,
     };
   },
+  // beforeMount() {
+  //   let num = this.$store.state.count ;
+  //   let val = this.$store.state.cost ;
+  //   this.$store.state.final = num * val ;
+  // },
+  // updated() {
+  //   let num = this.$store.state.count ;
+  //   let val = this.$store.state.cost ;
+  //   this.$store.state.final = num * val ;
+  // },
   beforeMount() {
-    let num = this.$store.state.count ;
-    let val = this.$store.state.cost ;
-    this.$store.state.final = num * val ;
+    let num = this.jsonFile.count ;
+    let val = this.jsonFile.price ;
+    this.final = num * val ;
+    this.$emit("loadCost",this.final) ;
+    return this.final ;
   },
   updated() {
-    let num = this.$store.state.count ;
-    let val = this.$store.state.cost ;
-    this.$store.state.final = num * val ;
+    let num = this.jsonFile.count ;
+    let val = this.jsonFile.price ;
+    this.final = num * val ;
+    this.$emit("loadCost",this.final) ;
+    return this.final ;
   },
-  // beforeMount() {
-  //   let num = this.jsonFile.count ;
-  //   let val = this.jsonFile.price ;
-  //   this.final = num * val ;
-  //   this.$emit("finalShop",this.final)
-  // },
   name: "product",
   props: ["keyIndex", "jsonPr"],
-  computed : mapGetters([
-    'checkCost'
-  ]),
-  methods: {
 
-    // finalCost(){
-    //   let num = this.jsonFile.count ;
-    //   let val = this.jsonFile.price ;
-    //   this.final = num * val ;
-    //   console.log(this.final);
-    //   this.$emit("loadCost",this.final) ;
-    //   return this.final ;
-    // },
+  methods: {
 
     add(duration) {
       if(this.jsonFile.count < this.jsonFile.stock){
@@ -209,7 +205,7 @@ export default {
 }
 .delButton {
   margin: 0 12px 0 5px;
-  background-image: url("../image/delVector.png");
+  background-image: url("~@/image/delVector.png");
   background-position: 5px 4px;
   background-repeat: no-repeat;
 }

@@ -36,9 +36,9 @@ export default {
       this.isOn = status;
 
       if (this.isOn) {
-        this.content = "changeComponent";
+        this.content = "ChangeComponent";
       } else {
-        this.content = "newBasket";
+        this.content = "NewBasket";
       }
 
       this.$emit("changeContent", this.content);

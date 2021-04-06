@@ -12,11 +12,11 @@
                 "price": 750000,
                 "primaryPrice": 850000,
                 "image": {
-                    "url": "../image/image 1.png",
+                    "url": "@/image/image 1.png",
                     "size": "SMALL"
                 }
             },
-            {
+            {               
                 "id": "pr2",
                 "stock": 200,
                 "count" : 1 ,
@@ -24,7 +24,7 @@
                 "price": 150000,
                 "primaryPrice": 350000,
                 "image": {
-                    "url": "../image/image 2.png",
+                    "url": "@/image/image 2.png",
                     "size": "SMALL"
                 }
             }
@@ -43,7 +43,7 @@
                 "price": 615000,
                 "primaryPrice": 850000,
                 "image": {
-                    "url": "../image/image 1.png",
+                    "url": "@/image/image 1.png",
                     "size": "SMALL"
                 }
             }

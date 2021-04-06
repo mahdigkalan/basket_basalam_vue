@@ -23,7 +23,7 @@ a > button {
   height: 40px;
   width: 40px;
   border-radius: 100px;
-  background-image: url("../image/backpageVector.png");
+  background-image: url("~@/image/backpageVector.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
   background-size: 12px 12px;
@@ -43,7 +43,7 @@ a > button {
   margin: 12px 0 0 23px;
   background: #ffffff;
   border: 1px solid #9d9d9d;
-  background-image: url("../image/newaddVector.png");
+  background-image: url("~@/image/newaddVector.png");
   background-repeat: no-repeat;
   background-position: 91.5px 12px;
   font-size: 14px;

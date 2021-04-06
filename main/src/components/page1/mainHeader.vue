@@ -3,7 +3,7 @@
     <div class="main-container flex_row">
       <div class="basketItem flex_row">
         <!-- <img src="image/Small.png" alt="NumText" id="basketItemImg1"> -->
-        <div class="small-badge">{{number}}</div>
+        <div class="small-badge">{{ productCount }}</div>
         <img src="@/image/Vector.png" alt="basketLogo" id="basketItemImg2" />
         <div class="sellingButton">
           <button>فروش در باسلام</button>
@@ -16,7 +16,7 @@
       </div>
       <div class="searchbox">
         <input
-          type="search"
+          type="text"
           placeholder="جستجو در صدها هزار محصول خانگی و محلی ..."
         />
       </div>
@@ -25,12 +25,19 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: "headTitle",
-  data() {
-    return {
-      number : 0 ,
-    }
+  // mounted() {
+  //   // console.log(this.$store.getters.productCount);
+  //   this.$store.dispatch('getApi', {
+  //     url : "https://jsonplaceholder.typicode.com/todos/1" ,
+  //   }) ;
+  // },
+  computed : {
+    ...mapGetters([
+      'productCount',
+    ])
   },
 };
 </script>
@@ -96,7 +103,7 @@ export default {
     box-sizing: border-box;
     direction: rtl;
     padding: 0 10px 0 0;
-    /* background-image: url('image/searchVector.png'); */
+    background-image: url('~@/image/searchVector.png');
     background-position: 10px 8px; 
     background-repeat: no-repeat;
     font-size: 12px;
