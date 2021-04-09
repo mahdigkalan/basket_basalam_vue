@@ -26,14 +26,18 @@
 
 <script>
 import {mapGetters} from 'vuex'
+
 export default {
+
   name: "headTitle",
+
   // mounted() {
   //   // console.log(this.$store.getters.productCount);
   //   this.$store.dispatch('getApi', {
   //     url : "https://jsonplaceholder.typicode.com/todos/1" ,
   //   }) ;
   // },
+  
   computed : {
     ...mapGetters([
       'productCount',

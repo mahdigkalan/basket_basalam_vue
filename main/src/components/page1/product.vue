@@ -2,7 +2,7 @@
   <div class="product flex_column" v-if="delProduct">
     <div class="main-product flex_row_reverse">
       <div class="product-picture">
-        <img :src="jsonFile.image.url"/>
+        <img :src="jsonFile.image.url" />
       </div>
       <div class="product-cost flex_column">
         <div class="product-name">
@@ -21,14 +21,19 @@
     <div class="else-product flex_row">
       <div class="saveInNext">
         <!-- <div>ذخیره در لیست بعدی</div> -->
-        <div>{{final}}</div>
+        <div>{{ final }}</div>
       </div>
       <div class="orderCount flex_row">
         <button
           class="delButton ordersButtons"
           @click="delProduct = !delProduct"
         ></button>
-        <button class="add-button ordersButtons" @mousedown="add(200)" @mouseup="stop" @click="addSlow">
+        <button
+          class="add-button ordersButtons"
+          @mousedown="add(200)"
+          @mouseup="stop"
+          @click="addSlow"
+        >
           <img src="@/image/addVector.png" />
         </button>
         <input
@@ -39,7 +44,9 @@
         />
         <button
           class="less-button ordersButtons"
-          @mousedown="less(200)" @mouseup="stop" @click="lessSlow"
+          @mousedown="less(200)"
+          @mouseup="stop"
+          @click="lessSlow"
         >
           <img src="@/image/lowVector.png" />
         </button>
@@ -50,13 +57,28 @@
 
 <script>
 export default {
+  name: "product",
+
   data() {
     return {
       delProduct: true,
-      jsonFile : this.jsonPr[this.keyIndex] ,
-      final : 0 ,
+      jsonFile: this.jsonPr[this.keyIndex],
+      final: 0,
     };
   },
+
+  // props from vendor component
+  props: {
+    keyIndex: {
+      type: Number,
+      required: true,
+    },
+    jsonPr: {
+      type: Array,
+      required: true,
+    },
+  },
+
   // beforeMount() {
   //   let num = this.$store.state.count ;
   //   let val = this.$store.state.cost ;
@@ -67,62 +89,58 @@ export default {
   //   let val = this.$store.state.cost ;
   //   this.$store.state.final = num * val ;
   // },
+  
   beforeMount() {
-    let num = this.jsonFile.count ;
-    let val = this.jsonFile.price ;
-    this.final = num * val ;
-    this.$emit("loadCost",this.final) ;
-    return this.final ;
+    let num = this.jsonFile.count;
+    let val = this.jsonFile.price;
+    this.final = num * val;
+    this.$emit("loadCost", this.final);
+    return this.final;
   },
   updated() {
-    let num = this.jsonFile.count ;
-    let val = this.jsonFile.price ;
-    this.final = num * val ;
-    this.$emit("loadCost",this.final) ;
-    return this.final ;
+    let num = this.jsonFile.count;
+    let val = this.jsonFile.price;
+    this.final = num * val;
+    this.$emit("loadCost", this.final);
+    return this.final;
   },
-  name: "product",
-  props: ["keyIndex", "jsonPr"],
 
   methods: {
-
     add(duration) {
-      if(this.jsonFile.count < this.jsonFile.stock){
-          this.setting = setTimeout(() => {
+      if (this.jsonFile.count < this.jsonFile.stock) {
+        this.setting = setTimeout(() => {
           this.jsonFile.count++;
           this.add(duration - 15);
         }, duration);
       }
     },
 
-    less(duration){
-      if(this.jsonFile.count > 1 ){
-          this.setting = setTimeout(() => {
+    less(duration) {
+      if (this.jsonFile.count > 1) {
+        this.setting = setTimeout(() => {
           this.jsonFile.count--;
           this.less(duration - 15);
         }, duration);
       }
     },
 
-    addSlow(){
-      if(this.jsonFile.count < this.jsonFile.stock){
+    addSlow() {
+      if (this.jsonFile.count < this.jsonFile.stock) {
         this.jsonFile.count++;
       }
     },
 
-    lessSlow(){
-      if(this.jsonFile.count > 1 ){
+    lessSlow() {
+      if (this.jsonFile.count > 1) {
         this.jsonFile.count--;
       }
     },
-    
-     stop(){
-      clearInterval(this.setting)
-    },
 
+    stop() {
+      clearInterval(this.setting);
+    },
   },
 };
-
 </script>
 
 <style scoped>

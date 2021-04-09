@@ -1,7 +1,9 @@
 <template>
-  <div class="shop-title flex_column" >
+  <div class="shop-title flex_column">
     <div class="boothName">
-      <p class="whereFrom">از غرفه : <span>{{jsonPr.shopName}}</span></p>
+      <p class="whereFrom">
+        از غرفه : <span>{{ jsonPr.shopName }}</span>
+      </p>
     </div>
     <div class="boothFounder flex_row">
       <div class="boothPicture">
@@ -9,11 +11,12 @@
       </div>
       <div class="boothLocation flex_column">
         <div class="boothLocationFirstDiv">
-          <p>{{jsonPr.shopFounder}}</p>
+          <p>{{ jsonPr.shopFounder }}</p>
         </div>
         <div class="boothLocationSecondDiv">
           <p>
-            <img src="@/image/VectorThree.png" alt="LocationVector" /> {{jsonPr.city}}
+            <img src="@/image/VectorThree.png" alt="LocationVector" />
+            {{ jsonPr.city }}
           </p>
         </div>
       </div>
@@ -23,14 +26,16 @@
 
 <script>
 export default {
-  props : {
-    jsonPr : {
-      type : Array,
-      required : true ,
-    } ,
-  },
-  // props : ["keyIndex","jsonPr"] ,
   name: "shopTitle",
+  
+  // props from vendor component
+  props: {
+    jsonPr: {
+      type: Array,
+      required: true,
+    },
+  },
+  
 };
 </script>
 
@@ -39,58 +44,58 @@ export default {
   width: 100%;
   height: 100px;
 }
-.boothName{
-    width: 100%;
-    height: 40px;
-    direction: rtl;
+.boothName {
+  width: 100%;
+  height: 40px;
+  direction: rtl;
 }
-.boothName > p{
-    font-size: 14px;
-    font-weight: 400;
+.boothName > p {
+  font-size: 14px;
+  font-weight: 400;
 }
 .boothName > span {
-    font-size: 14px;
-    font-weight: 700;
+  font-size: 14px;
+  font-weight: 700;
 }
-.whereFrom{
-    padding: 20px 10px 0 0;
+.whereFrom {
+  padding: 20px 10px 0 0;
 }
-.whereFrom > span{
-    font-weight: 700;
+.whereFrom > span {
+  font-weight: 700;
 }
-.boothFounder{
-    width: 100%;
-    height: 60px;
-    direction: rtl;
+.boothFounder {
+  width: 100%;
+  height: 60px;
+  direction: rtl;
 }
-.boothPicture{
-    width: 20%;
-    height: 100%;
+.boothPicture {
+  width: 20%;
+  height: 100%;
 }
-.boothPicture > img{
-    padding: 8px 15px 0 0 ;
+.boothPicture > img {
+  padding: 8px 15px 0 0;
 }
-.boothLocation{
-    width: 80%;
-    height: 100%;
+.boothLocation {
+  width: 80%;
+  height: 100%;
 }
-.boothLocationFirstDiv{
-    width: 100%;
-    height: 50%;
-    direction: rtl;
+.boothLocationFirstDiv {
+  width: 100%;
+  height: 50%;
+  direction: rtl;
 }
-.boothLocationSecondDiv{
-    width: 100%;
-    height: 50%;
-    direction: rtl;
+.boothLocationSecondDiv {
+  width: 100%;
+  height: 50%;
+  direction: rtl;
 }
-.boothLocationFirstDiv > p{
-    padding: 10px 0 0 0;
-    font-size: 12px;
-    font-weight: 400;
+.boothLocationFirstDiv > p {
+  padding: 10px 0 0 0;
+  font-size: 12px;
+  font-weight: 400;
 }
-.boothLocationSecondDiv > p{
-    font-size: 12px;
-    font-weight: 400;
+.boothLocationSecondDiv > p {
+  font-size: 12px;
+  font-weight: 400;
 }
 </style>

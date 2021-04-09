@@ -21,6 +21,14 @@ import VendorFooter from "@/components/page1/vendorFooter.vue";
 
 export default {
   name: "firstContainer",
+  
+  data() {
+    return {
+      finalShop: 0,
+      delShop: true,
+    };
+  },
+
   props: {
     products: {
       type: Array,
@@ -31,12 +39,7 @@ export default {
       required : true,
     }
   },
-  data() {
-    return {
-      finalShop: 0,
-      delShop: true,
-    };
-  },
+  
 
   components: {
     VendorTitle,
