@@ -31,7 +31,7 @@ export default {
   // props from vendor component
   props: {
     jsonPr: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },

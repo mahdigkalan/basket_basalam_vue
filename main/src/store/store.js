@@ -4,12 +4,12 @@ vue.use(vuex);
 
 // fake data
 import FakeProducts from "@/fakeProducts.json";
-
+import axios from "axios";
 
 export const store = new vuex.Store({
     state: {
-        tode : null ,
-        jsonData : FakeProducts ,
+        todo: null,
+        jsonData: FakeProducts,
     },
 
     getters: {
@@ -20,17 +20,32 @@ export const store = new vuex.Store({
     },
 
     mutations: {
+        // ADD_TODO_TO_STATE(state, payload) {
+        //     state.todo = payload
+        // } 
         ADD_TODO_TO_STATE(state, payload) {
             state.todo = payload
-        } 
+        }
     },
 
     actions: {
-        getApi(context, apiUrl) {
+        // getApi(context, apiUrl) {
 
-            fetch(apiUrl.url)
-                .then(response => response.json())
-                .then(json => { context.commit('ADD_TODO_TO_STATE', json) })
-        },
+        //     fetch(apiUrl.url)
+        //         .then(response => response.json())
+        //         .then(json => { context.commit('ADD_TODO_TO_STATE', json) })
+        // },
+
+        // getApi(context, apiUrl) {
+        //     axios
+        //         .get(apiUrl.url)
+        //         .then((response) => (response.data.data))
+        //         .then((json) => { context.commit('ADD_TODO_TO_STATE', json) })
+        // }
+
+        async getApi(context, { url }) {
+            const result = await axios.get(url)
+            context.commit("ADD_TODO_TO_STATE", result.data.data)
+        }
     },
 });

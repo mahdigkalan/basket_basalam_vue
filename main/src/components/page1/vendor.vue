@@ -8,7 +8,7 @@
         :keyIndex="index"
         :jsonPr="products"
         @loadCost="finalShop = $event"
-      ></product>
+      ></Product>
       <VendorFooter :finalFooter="finalShop" />
     </div>
   </div>
@@ -21,7 +21,7 @@ import VendorFooter from "@/components/page1/vendorFooter.vue";
 
 export default {
   name: "firstContainer",
-  
+
   data() {
     return {
       finalShop: 0,
@@ -29,27 +29,25 @@ export default {
     };
   },
 
+
+
   props: {
     products: {
       type: Array,
       required: true,
     },
-    venderInfo : {
-      type : Object,
-      required : true,
-    }
+    venderInfo: {
+      type: Object,
+      required: true,
+    },
   },
-  
 
   components: {
     VendorTitle,
     Product,
-    VendorFooter
+    VendorFooter,
   },
 
-  mounted() {
-    console.log("this.products", this.products);
-  },
 };
 </script>
 

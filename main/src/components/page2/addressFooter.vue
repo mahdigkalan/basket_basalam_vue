@@ -5,7 +5,7 @@
       <div class="cost full-height">75000</div>
 
       <div class="confrim-button full-height">
-        <router-link to="/third"><button>ادامه فرآیند خرید</button></router-link>
+        <router-link to="/pay"><button>ادامه فرآیند خرید</button></router-link>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .border{
     height: 50px;
     background: #EEEEEE;

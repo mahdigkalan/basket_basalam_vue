@@ -3,7 +3,7 @@
     <MainHeader />
     <BasketChangingHeader @changeContent="basket = $event" />
     <keep-alive>
-      <component :is="basket"></component>
+      <Component :is="basket" />
     </keep-alive>
     <Space />
     <MainBasketFooter />
@@ -11,29 +11,29 @@
 </template>
 
 <script>
-import MainHeader from "@/components/page1/mainHeader.vue";
-import BasketChangingHeader from "@/components/page1/basketChangingHeader.vue";
+import Space from "@/components/page1/space.vue";
 import NewBasket from "@/components/page1/newBasket.vue";
+import MainHeader from "@/components/page1/mainHeader.vue";
 import ChangeComponent from "@/components/page1/changeComponent.vue";
 import MainBasketFooter from "@/components/page1/mainBasketFooter.vue";
-import Space from "@/components/page1/space.vue";
+import BasketChangingHeader from "@/components/page1/basketChangingHeader.vue";
 
 export default {
   name: "App",
 
   data() {
     return {
-      basket: "default",
+      basket: "ChangeComponent",
     };
   },
 
   components: {
-    MainHeader,
-    BasketChangingHeader,
+    Space,
     NewBasket,
+    MainHeader,
     ChangeComponent,
     MainBasketFooter,
-    Space,
+    BasketChangingHeader,
   },
 };
 </script>
