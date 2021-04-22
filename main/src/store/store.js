@@ -13,10 +13,16 @@ export const store = new vuex.Store({
     },
 
     getters: {
+
         productCount(state) {
             let newArray = state.jsonData.map((vendor) => vendor.productsArray)
             return newArray.flat().length
         },
+
+        filterVendor(state) {
+            let product = state.todo.cart ;
+            
+        }
     },
 
     mutations: {

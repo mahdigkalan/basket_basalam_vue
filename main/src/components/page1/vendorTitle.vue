@@ -2,7 +2,7 @@
   <div class="shop-title flex_column">
     <div class="boothName">
       <p class="whereFrom">
-        از غرفه : <span>{{ jsonPr.shopName }}</span>
+        از غرفه : <span>{{ jsonPr.title }}</span>
       </p>
     </div>
     <div class="boothFounder flex_row">
@@ -11,12 +11,12 @@
       </div>
       <div class="boothLocation flex_column">
         <div class="boothLocationFirstDiv">
-          <p>{{ jsonPr.shopFounder }}</p>
+          <p>{{ jsonPr.owner.name }}</p>
         </div>
         <div class="boothLocationSecondDiv">
           <p>
             <img src="@/image/VectorThree.png" alt="LocationVector" />
-            {{ jsonPr.city }}
+            {{ jsonPr.owner.city }}
           </p>
         </div>
       </div>
