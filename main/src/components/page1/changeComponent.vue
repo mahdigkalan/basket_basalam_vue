@@ -1,11 +1,9 @@
 <template>
   <div>
     <!-- :products="shop.productsArray" -->
-    <Vendor
-      v-for="(shop, index) in product"
-      :venderInfo="shop"
-      :key="index"
-    />
+    <Vendor v-for="(shop, index) in vendorLoop"
+    :vendorInfo="vendorLoop[index]"
+    :key="index" />
   </div>
 </template>
 
@@ -17,7 +15,7 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      product: [],
+      vendorLoop: this.$store.state.vendors,
     };
   },
 
@@ -29,15 +27,17 @@ export default {
     ...mapState(["todo"]),
   },
 
-  async mounted() {
-    await this.$store.dispatch("getApi", {
-      url:
-        "https://internship-cart.iran.liara.run/api/v1.0/users/60578bb23579bd08186a213b",
-    });
+  // async mounted() {
+  //   await this.$store.dispatch("getApi", {
+  //     url:
+  //       "https://internship-cart.iran.liara.run/api/v1.0/users/60578bb23579bd08186a213b",
+  //   });
 
-    // await console.log("our api", this.todo.cart);
-    this.product = await this.todo.cart;
-  },
+  //   this.product = await this.todo.cart;
+  //   this.$store.getters.filtervendor;
+
+  //   console.log("vendor loop is => ", this.vendorLoop);
+  // },
 };
 </script>
 

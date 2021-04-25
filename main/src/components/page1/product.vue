@@ -2,26 +2,26 @@
   <div class="product flex_column" v-if="delProduct">
     <div class="main-product flex_row_reverse">
       <div class="product-picture">
-        <img :src="jsonFile.image.url" />
+        <img src="#" />
       </div>
       <div class="product-cost flex_column">
         <div class="product-name">
-          <p>{{ jsonFile.name }}</p>
+          <p>{{ jsonPr.title }}</p>
         </div>
         <div class="productFinal-cost flex_row_reverse">
           <div class="line-cost">
-            <del>{{ jsonFile.primaryPrice }}</del>
+            <del>{{ jsonPr.primaryPrice }}</del>
           </div>
           <div class="final-cost">
-            <p class="pCost">{{ jsonFile.price }}</p>
+            <p class="pCost">{{ jsonPr.price }}</p>
           </div>
+          <div class="exist">{{testData}}</div>
         </div>
       </div>
     </div>
     <div class="else-product flex_row">
       <div class="saveInNext">
-        <!-- <div>ذخیره در لیست بعدی</div> -->
-        <div>{{ final }}</div>
+        <div>ذخیره در لیست بعدی</div>
       </div>
       <div class="orderCount flex_row">
         <button
@@ -40,8 +40,10 @@
           type="text"
           readonly
           class="inp"
-          :value="jsonPr[keyIndex].count"
+          :value="checkStock()"
+          
         />
+
         <button
           class="less-button ordersButtons"
           @mousedown="less(200)"
@@ -62,19 +64,20 @@ export default {
   data() {
     return {
       delProduct: true,
-      jsonFile: this.jsonPr[this.keyIndex],
       final: 0,
+      counter : 1 ,
+      testData : "" ,
     };
   },
 
   // props from vendor component
   props: {
-    keyIndex: {
-      type: Number,
-      required: true,
-    },
+    // keyIndex: {
+    //   type: Number,
+    //   required: true,
+    // },
     jsonPr: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
@@ -89,50 +92,65 @@ export default {
   //   let val = this.$store.state.cost ;
   //   this.$store.state.final = num * val ;
   // },
-  
-  beforeMount() {
-    let num = this.jsonFile.count;
-    let val = this.jsonFile.price;
-    this.final = num * val;
-    this.$emit("loadCost", this.final);
-    return this.final;
-  },
-  updated() {
-    let num = this.jsonFile.count;
-    let val = this.jsonFile.price;
-    this.final = num * val;
-    this.$emit("loadCost", this.final);
-    return this.final;
-  },
 
+  // beforeMount() {
+  //   let num = this.jsonFile.count;
+  //   let val = this.jsonFile.price;
+  //   this.final = num * val;
+  //   this.$emit("loadCost", this.final);
+  //   return this.final;
+  // },
+  // updated() {
+  //   let num = this.jsonFile.count;
+  //   let val = this.jsonFile.price;
+  //   this.final = num * val;
+  //   this.$emit("loadCost", this.final);
+  //   return this.final;
+  // },
+
+  mounted() {
+    console.log("product loaded");
+  },
   methods: {
+
+    checkStock(){
+      if(this.jsonPr.stock == 0){
+        this.testData = "! موجود نیست "
+        return 1 ;
+      }else{
+        return 1 ;
+      }
+    },
+
     add(duration) {
-      if (this.jsonFile.count < this.jsonFile.stock) {
+      if (this.counter < this.jsonPr.stock) {
         this.setting = setTimeout(() => {
-          this.jsonFile.count++;
+          this.counter++;
           this.add(duration - 15);
         }, duration);
+      }else if (this.jsonPr.stock == 0) {
+          console.log("we have none !");
       }
     },
 
     less(duration) {
-      if (this.jsonFile.count > 1) {
+      if (this.counter > 1) {
         this.setting = setTimeout(() => {
-          this.jsonFile.count--;
+          this.counter--;
           this.less(duration - 15);
         }, duration);
       }
     },
 
     addSlow() {
-      if (this.jsonFile.count < this.jsonFile.stock) {
-        this.jsonFile.count++;
+      if (this.counter < this.jsonPr.stock) {
+        this.counter++;
       }
     },
 
     lessSlow() {
-      if (this.jsonFile.count > 1) {
-        this.jsonFile.count--;
+      if (this.counter > 1) {
+        this.counter--;
       }
     },
 
@@ -159,6 +177,8 @@ export default {
 }
 .product-picture > img {
   padding: 20px 10px;
+  max-height: 100%;
+  max-width: 100%;
 }
 .product-cost {
   width: 70%;
@@ -176,6 +196,7 @@ export default {
 }
 .productFinal-cost {
   height: 100%;
+  position: relative;
 }
 .line-cost {
   width: 70%;
@@ -199,6 +220,15 @@ export default {
   font-size: 10px;
   font-weight: 700;
   cursor: pointer;
+}
+.exist{
+  width: 120px;
+  height: 20px;
+  right: 5px;
+  top: 5px;
+  color: #f10b0b;
+  position: absolute;
+  font-size: 18px;
 }
 .orderCount {
   width: 40%;

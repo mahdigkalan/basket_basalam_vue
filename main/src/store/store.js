@@ -5,11 +5,15 @@ vue.use(vuex);
 // fake data
 import FakeProducts from "@/fakeProducts.json";
 import axios from "axios";
+import fakeJson from "@/fakeJson.json"
 
 export const store = new vuex.Store({
     state: {
         todo: null,
         jsonData: FakeProducts,
+        json: fakeJson,
+        vendors: [],
+        mainProductArray : [],
     },
 
     getters: {
@@ -19,10 +23,63 @@ export const store = new vuex.Store({
             return newArray.flat().length
         },
 
-        filterVendor(state) {
-            let product = state.todo.cart ;
-            
-        }
+        // filterVendor: state => {
+        //     let cart = state.todo.cart;
+        //     cart.forEach(element => {
+        //         let vendorTitle = element.vendor.title;
+
+        //         cart.forEach(element => {
+        //             if (element.vendor.title == vendorTitle) {
+        //                 console.log("we have two the same vendor !", vendorTitle);
+        //                 state.vendors.push(element);
+        //                 console.log(state.vendors);
+        //             }
+
+        //         });
+
+        //     });
+        // }
+
+        filtervendor: state => {
+
+            let cart = state.todo.cart;
+            cart.forEach(element => {
+                let firstShopTitle = element.vendor.title;
+                cart.forEach(element => {
+                    let parametr = 1;
+                    let secondShopTitle = element.vendor.title;
+                    if (firstShopTitle == secondShopTitle) {
+                        state.vendors.forEach(element => {
+                            if (element.title == secondShopTitle) {
+                                parametr *= -1;
+                            }
+                        });
+
+                        if (parametr == 1) {
+                            state.vendors.push({ title: secondShopTitle, cartContent: element.vendor , cart : [] });
+                        }
+
+                    }
+                });
+            });
+
+
+            console.log("vendors in state is => ",state.vendors); 
+
+
+            state.vendors.forEach((element,index) => {
+                let shopTitle = element.title ; 
+                let turn = index ;
+                cart.forEach(element => {
+                    let vendorTitle = element.vendor.title ;
+                    if(vendorTitle == shopTitle){
+                        state.vendors[turn].cart.push(element) ;
+                        console.log("main product array is => ",state.vendors) ;
+                    }
+                });
+            }) ;
+
+        },
     },
 
     mutations: {

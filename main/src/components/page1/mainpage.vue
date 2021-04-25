@@ -35,6 +35,8 @@ export default {
     MainBasketFooter,
     BasketChangingHeader,
   },
+
+  
 };
 </script>
 

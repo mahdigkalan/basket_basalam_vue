@@ -1,23 +1,26 @@
 <template>
   <div class="main" v-if="delShop">
     <div class="main-content">
-      <VendorTitle :jsonPr="venderInfo.vendor" />
-      <!-- <Product
-        v-for="(pr, index) in products.length"
-        :key="pr"
-        :keyIndex="index"
-        :jsonPr="products"
-        @loadCost="finalShop = $event"
-      ></Product> -->
-      <!-- <VendorFooter :finalFooter="finalShop" /> -->
+      <!-- :keyIndex="index"
+        :jsonPr="vendorInfo.cartContent"
+        @loadCost="finalShop = $event" -->
+
+        <!-- :jsonPr="venderInfo.cartContent.vendor" -->
+      <VendorTitle :jsonPr="vendorInfo.cartContent" />
+      <Product
+        v-for="(pr, index) in vendorInfo.cart"
+        :jsonPr="vendorInfo.cart[index]"
+        :key="index"
+      ></Product>
+      <VendorFooter :finalFooter="finalShop" />
     </div>
   </div>
 </template>
 
 <script>
 import VendorTitle from "@/components/page1/vendorTitle.vue";
-// import Product from "@/components/page1/product.vue";
-// import VendorFooter from "@/components/page1/vendorFooter.vue";
+import Product from "@/components/page1/product.vue";
+import VendorFooter from "@/components/page1/vendorFooter.vue";
 
 export default {
   name: "firstContainer",
@@ -37,19 +40,23 @@ export default {
     //   required: true,
     // },
     
-    venderInfo: {
+    vendorInfo: {
       type: Object,
       required: true,
     },
+
   },
 
 
   components: {
     VendorTitle,
-    // Product,
-    // VendorFooter,
+    Product,
+    VendorFooter,
   },
 
+  mounted() {
+    console.log("vendor info for product loop => " , this.vendorInfo);
+  },
 };
 </script>
 
