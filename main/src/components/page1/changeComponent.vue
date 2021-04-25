@@ -2,7 +2,8 @@
   <div>
     <!-- :products="shop.productsArray" -->
     <Vendor v-for="(shop, index) in vendorLoop"
-    :vendorInfo="vendorLoop[index]"
+    :vendorInfo="vendorLoop"
+    :vendorIndex="index"
     :key="index" />
   </div>
 </template>

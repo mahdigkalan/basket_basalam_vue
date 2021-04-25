@@ -13,13 +13,13 @@ export const store = new vuex.Store({
         jsonData: FakeProducts,
         json: fakeJson,
         vendors: [],
-        mainProductArray : [],
+        mainProductArray: [],
     },
 
     getters: {
 
         productCount(state) {
-            let newArray = state.jsonData.map((vendor) => vendor.productsArray)
+            let newArray = state.vendors.map((vendor) => vendor.cart)
             return newArray.flat().length
         },
 
@@ -56,7 +56,7 @@ export const store = new vuex.Store({
                         });
 
                         if (parametr == 1) {
-                            state.vendors.push({ title: secondShopTitle, cartContent: element.vendor , cart : [] });
+                            state.vendors.push({ title: secondShopTitle, cartContent: element.vendor, cart: [] });
                         }
 
                     }
@@ -64,20 +64,19 @@ export const store = new vuex.Store({
             });
 
 
-            console.log("vendors in state is => ",state.vendors); 
 
 
-            state.vendors.forEach((element,index) => {
-                let shopTitle = element.title ; 
-                let turn = index ;
+            state.vendors.forEach((element, index) => {
+                let shopTitle = element.title;
+                let turn = index;
                 cart.forEach(element => {
-                    let vendorTitle = element.vendor.title ;
-                    if(vendorTitle == shopTitle){
-                        state.vendors[turn].cart.push(element) ;
-                        console.log("main product array is => ",state.vendors) ;
+                    let vendorTitle = element.vendor.title;
+                    if (vendorTitle == shopTitle) {
+                        state.vendors[turn].cart.push(element);
+                        console.log("main product array is => ", state.vendors);
                     }
                 });
-            }) ;
+            });
 
         },
     },
@@ -88,6 +87,17 @@ export const store = new vuex.Store({
         // } 
         ADD_TODO_TO_STATE(state, payload) {
             state.todo = payload
+        },
+        delete(state, payload) {
+            let vendors = state.vendors;
+            if (vendors[payload.vendorIndex].cart.length > 1) {
+                vendors[payload.vendorIndex].cart.splice(
+                    payload.productIndex,
+                    1
+                );
+            } else {
+                vendors.splice(payload.vendorIndex, 1);
+            }
         }
     },
 
@@ -109,6 +119,11 @@ export const store = new vuex.Store({
         async getApi(context, { url }) {
             const result = await axios.get(url)
             context.commit("ADD_TODO_TO_STATE", result.data.data)
-        }
+        },
+
+        deleteProduct(context, parameters) {
+            context.commit("delete", parameters);
+        },
+
     },
 });

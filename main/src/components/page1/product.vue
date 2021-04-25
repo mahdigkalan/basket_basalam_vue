@@ -2,20 +2,20 @@
   <div class="product flex_column" v-if="delProduct">
     <div class="main-product flex_row_reverse">
       <div class="product-picture">
-        <img src="#" />
+        <img src="@/image/image 2.png" />
       </div>
       <div class="product-cost flex_column">
         <div class="product-name">
-          <p>{{ jsonPr.title }}</p>
+          <p>{{ jsonPr[keyIndex].title }}</p>
         </div>
         <div class="productFinal-cost flex_row_reverse">
           <div class="line-cost">
-            <del>{{ jsonPr.primaryPrice }}</del>
+            <del>{{ jsonPr[keyIndex].primaryPrice }}</del>
           </div>
           <div class="final-cost">
-            <p class="pCost">{{ jsonPr.price }}</p>
+            <p class="pCost">{{ jsonPr[keyIndex].price }}</p>
           </div>
-          <div class="exist">{{testData}}</div>
+          <div class="exist">{{ testData }}</div>
         </div>
       </div>
     </div>
@@ -24,10 +24,7 @@
         <div>ذخیره در لیست بعدی</div>
       </div>
       <div class="orderCount flex_row">
-        <button
-          class="delButton ordersButtons"
-          @click="delProduct = !delProduct"
-        ></button>
+        <button class="delButton ordersButtons" @click="deleteProduct"></button>
         <button
           class="add-button ordersButtons"
           @mousedown="add(200)"
@@ -36,13 +33,7 @@
         >
           <img src="@/image/addVector.png" />
         </button>
-        <input
-          type="text"
-          readonly
-          class="inp"
-          :value="checkStock()"
-          
-        />
+        <input type="text" readonly class="inp" v-model="counter" />
 
         <button
           class="less-button ordersButtons"
@@ -65,19 +56,23 @@ export default {
     return {
       delProduct: true,
       final: 0,
-      counter : 1 ,
-      testData : "" ,
+      counter: 1,
+      testData: "",
     };
   },
 
   // props from vendor component
   props: {
-    // keyIndex: {
-    //   type: Number,
-    //   required: true,
-    // },
+    keyIndex: {
+      type: Number,
+      required: true,
+    },
     jsonPr: {
-      type: Object,
+      type: Array,
+      required: true,
+    },
+    vendorIndexInProduct: {
+      type: Number,
       required: true,
     },
   },
@@ -109,27 +104,28 @@ export default {
   // },
 
   mounted() {
-    console.log("product loaded");
+    if (this.jsonPr[this.keyIndex].stock == 0) {
+      this.testData = "! موجود نیست ";
+      this.counter = 0;
+    } else {
+      this.counter = 1;
+    }
   },
+  
   methods: {
-
-    checkStock(){
-      if(this.jsonPr.stock == 0){
-        this.testData = "! موجود نیست "
-        return 1 ;
-      }else{
-        return 1 ;
-      }
+    deleteProduct() {
+      this.$store.dispatch("deleteProduct", {
+        vendorIndex: this.vendorIndexInProduct,
+        productIndex: this.keyIndex,
+      });
     },
 
     add(duration) {
-      if (this.counter < this.jsonPr.stock) {
+      if (this.counter < this.jsonPr[this.keyIndex].stock) {
         this.setting = setTimeout(() => {
-          this.counter++;
-          this.add(duration - 15);
+          this.counter++ ;
+          this.add(duration - 15) ;
         }, duration);
-      }else if (this.jsonPr.stock == 0) {
-          console.log("we have none !");
       }
     },
 
@@ -143,7 +139,7 @@ export default {
     },
 
     addSlow() {
-      if (this.counter < this.jsonPr.stock) {
+      if (this.counter < this.jsonPr[this.keyIndex].stock) {
         this.counter++;
       }
     },
@@ -221,7 +217,7 @@ export default {
   font-weight: 700;
   cursor: pointer;
 }
-.exist{
+.exist {
   width: 120px;
   height: 20px;
   right: 5px;

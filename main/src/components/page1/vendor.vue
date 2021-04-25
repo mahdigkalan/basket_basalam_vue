@@ -6,10 +6,12 @@
         @loadCost="finalShop = $event" -->
 
         <!-- :jsonPr="venderInfo.cartContent.vendor" -->
-      <VendorTitle :jsonPr="vendorInfo.cartContent" />
+      <VendorTitle :jsonPr="vendorInfo[vendorIndex].cartContent" />
       <Product
-        v-for="(pr, index) in vendorInfo.cart"
-        :jsonPr="vendorInfo.cart[index]"
+        v-for="(pr, index) in vendorInfo[vendorIndex].cart"
+        :jsonPr="vendorInfo[vendorIndex].cart"
+        :keyIndex="index"
+        :vendorIndexInProduct="vendorIndex"
         :key="index"
       ></Product>
       <VendorFooter :finalFooter="finalShop" />
@@ -39,9 +41,12 @@ export default {
     //   type: Array,
     //   required: true,
     // },
-    
+    vendorIndex: {
+      type: Number,
+      required : true ,
+    },
     vendorInfo: {
-      type: Object,
+      type: Array,
       required: true,
     },
 
@@ -55,7 +60,6 @@ export default {
   },
 
   mounted() {
-    console.log("vendor info for product loop => " , this.vendorInfo);
   },
 };
 </script>

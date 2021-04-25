@@ -50,9 +50,7 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log("jsonPr is : ",this.jsonPr);
-  },
+  
 };
 </script>
 

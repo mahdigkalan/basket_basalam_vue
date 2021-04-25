@@ -13,7 +13,6 @@ export default {
     // this.product = await this.todo.cart;
     this.$store.getters.filtervendor;
 
-    console.log("vendor loop is => ", this.vendorLoop);
   },
 };
 </script>
